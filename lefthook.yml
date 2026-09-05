@@ -1,0 +1,11 @@
+# Install with: lefthook install
+
+pre-commit:
+  jobs:
+    - name: lint
+      run: shellcheck *.sh
+
+pre-push:
+  jobs:
+    - name: test
+      run: ./test.sh
