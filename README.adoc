@@ -19,12 +19,12 @@ The context segment changes color as the session fills up:
 
 [cols="1,2"]
 |===
-| Neutral | below 60 % of the window
-| Amber   | 60 % and above
-| Red     | 80 % and above, or 200k tokens and above, whichever comes first
+| Neutral | below the thresholds
+| Amber   | 60 % of the window or 150k tokens, whichever comes first
+| Red     | 80 % of the window or 200k tokens, whichever comes first
 |===
 
-The absolute 200k limit keeps the warning meaningful on 1M context windows.
+The absolute limits keep the warning meaningful on 1M context windows, where the percentages alone would only trigger far beyond 200k tokens.
 
 == Installation
 

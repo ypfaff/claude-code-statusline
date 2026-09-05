@@ -45,7 +45,7 @@ for fixture in testdata/*.json; do
 
   case "$name" in
     alert-*) expect_color "$name" "$RED_CODE" "$raw" ;;
-    warn) expect_color "$name" "$AMBER_CODE" "$raw" ;;
+    warn-*) expect_color "$name" "$AMBER_CODE" "$raw" ;;
     *) expect_no_alert_colors "$name" "$raw" ;;
   esac
 done

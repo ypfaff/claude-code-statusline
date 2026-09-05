@@ -11,6 +11,7 @@ set -o errexit -o nounset -o pipefail
 readonly BAR_WIDTH=20
 readonly MAX_DIR_LENGTH=50
 readonly WARN_PERCENT=60
+readonly WARN_TOKENS=150000
 readonly ALERT_PERCENT=80
 readonly ALERT_TOKENS=200000
 
@@ -96,7 +97,7 @@ main() {
     usage=$(format_tokens "$tokens")
     if ((percent >= ALERT_PERCENT || tokens >= ALERT_TOKENS)); then
       color=$RED
-    elif ((percent >= WARN_PERCENT)); then
+    elif ((percent >= WARN_PERCENT || tokens >= WARN_TOKENS)); then
       color=$AMBER
     fi
   fi
