@@ -1,0 +1,8 @@
+{
+  "model": {"display_name": "Fable 5.1"},
+  "workspace": {"project_dir": "/tmp/demo"},
+  "thinking": {"enabled": true},
+  "effort": {"level": "max"},
+  "cost": {"total_duration_ms": 600000},
+  "context_window": {"context_window_size": 1000000, "current_usage": {"input_tokens": 200000, "cache_creation_input_tokens": 50000, "cache_read_input_tokens": 0}}
+}

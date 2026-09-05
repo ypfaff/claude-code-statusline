@@ -1,0 +1,12 @@
+{
+  "model": {"id": "claude-fable-5-1", "display_name": "Fable 5.1"},
+  "workspace": {"current_dir": "/Users/dev/Projects/claude-code-statusline", "project_dir": "/Users/dev/Projects/claude-code-statusline"},
+  "thinking": {"enabled": true},
+  "effort": {"level": "high"},
+  "cost": {"total_duration_ms": 4320000},
+  "context_window": {
+    "context_window_size": 200000,
+    "used_percentage": 24,
+    "current_usage": {"input_tokens": 40000, "cache_creation_input_tokens": 3000, "cache_read_input_tokens": 5000, "output_tokens": 900}
+  }
+}

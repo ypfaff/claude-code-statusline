@@ -1,0 +1,7 @@
+{
+  "model": {"id": "claude-opus-5", "display_name": "Opus"},
+  "workspace": {"current_dir": "/Users/dev/Projects/example-org/sample-workspace/demo-project/scripts", "project_dir": "/Users/dev/Projects/example-org/sample-workspace/demo-project/scripts"},
+  "thinking": {"enabled": false},
+  "cost": {"total_duration_ms": 12000},
+  "context_window": {"context_window_size": 200000, "used_percentage": null, "current_usage": null}
+}

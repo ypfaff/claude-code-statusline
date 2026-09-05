@@ -1,0 +1,8 @@
+{
+  "model": {"display_name": "Sonnet"},
+  "workspace": {"project_dir": "/tmp/demo"},
+  "thinking": {"enabled": true},
+  "effort": {"level": "medium"},
+  "cost": {"total_duration_ms": 90000000},
+  "context_window": {"context_window_size": 200000, "current_usage": {"input_tokens": 170000, "cache_creation_input_tokens": 0, "cache_read_input_tokens": 0}}
+}
