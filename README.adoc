@@ -1,0 +1,67 @@
+= claude-code-statusline
+
+A clean two-line https://code.claude.com/docs/en/statusline[status line] for Claude Code.
+
+----
+Fable 5.1 · ◆ high · ~/Projects/claude-code-statusline
+▓▓▓▓░░░░░░░░░░░░░░░░ 48k/200k · 1h 12m
+----
+
+Line one shows the model, the thinking effort level, and the directory Claude Code was started in.
+Line two shows the context window as a bar and as `used/size`, followed by the session duration.
+
+The thinking segment is omitted when extended thinking is off.
+The directory is shortened to its last two segments once it gets longer than 50 characters.
+
+== Colors
+
+The context segment changes color as the session fills up:
+
+[cols="1,2"]
+|===
+| Neutral | below 60 % of the window
+| Amber   | 60 % and above
+| Red     | 80 % and above, or 200k tokens and above, whichever comes first
+|===
+
+The absolute 200k limit keeps the warning meaningful on 1M context windows.
+
+== Installation
+
+Requires `bash`, `jq` and `awk`.
+
+[source,shell]
+----
+git clone git@github.com:ypfaff/claude-code-statusline.git
+cd claude-code-statusline
+./install.sh
+----
+
+`install.sh` writes the `statusLine` block to `~/.claude/settings.json` and backs up the file first.
+It sets `refreshInterval` to 60 seconds so the duration keeps ticking while the session is idle.
+Pass `--yes` to skip the confirmation prompt.
+
+== Development
+
+[source,shell]
+----
+lefthook install   # shellcheck on commit, tests on push
+shellcheck *.sh
+./test.sh
+./statusline.sh < testdata/normal.json
+----
+
+Fixtures in `testdata/` mirror the JSON Claude Code passes on stdin.
+The full schema is documented under https://code.claude.com/docs/en/statusline#available-data[Available data] in the status line docs.
+The renderer reads these fields:
+
+[cols="1m,2"]
+|===
+| model.display_name                 | model name
+| thinking.enabled                   | whether the thinking segment is shown
+| effort.level                       | effort shown in the thinking segment
+| workspace.project_dir              | launch directory
+| context_window.current_usage       | input, cache creation and cache read tokens, summed
+| context_window.context_window_size | window size
+| cost.total_duration_ms             | session duration
+|===
